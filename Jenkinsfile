@@ -38,12 +38,11 @@ node {
 
     stage('SCM checkout') {
         checkout([$class: 'GitSCM',
-                  branches: [[name: '*/master'],
-                             [name: 'Test/develop']],
+                  branches: [[name: 'Test/develop']],
                   doGenerateSubmoduleConfigurations: false,
                   extensions: [],
                   submoduleCfg: [],
-                  userRemoteConfigs: [[credentialsId: 'Github',
+                  userRemoteConfigs: [[credentialsId: '',
                                        url: 'https://github.com/abes-esr/abes-hello-back.git']]
         ])
     }
