@@ -13,34 +13,26 @@ node {
             booleanParam(defaultValue: false, description: '', name: 'executeTests')
     ])])
     // 1. On charge les variables d'environnement (Java, Maven,...)
-    stage ("Loading environement variables") {
+    env.JAVA_HOME = "${tool 'Open JDK 11'}"
+    env.PATH = "${env.JAVA_HOME}/bin:${env.PATH}"
 
-        try {
-            env.JAVA_HOME = "${tool 'Open JDK 11'}"
-            env.PATH = "${env.JAVA_HOME}/bin:${env.PATH}"
+    def maventool = tool 'Maven 3.3.9'
+    //def serverArtifactory = Artifactory.newServer url: 'https://artifactory-test.abes.fr', credentialsId: 'artifactorykey'
+    def rtMaven = Artifactory.newMavenBuild()
+    def buildInfo
+    def server = Artifactory.server '-1137809952@1458918089773'
+    rtMaven.tool = 'Maven 3.3.9'
+    rtMaven.opts = '-Xms1024m -Xmx4096m'
 
-            def maventool = tool 'Maven 3.3.9'
-            //def serverArtifactory = Artifactory.newServer url: 'https://artifactory-test.abes.fr', credentialsId: 'artifactorykey'
-            def rtMaven = Artifactory.newMavenBuild()
-            def buildInfo
-            def server = Artifactory.server '-1137809952@1458918089773'
-            rtMaven.tool = 'Maven 3.3.9'
-            rtMaven.opts = '-Xms1024m -Xmx4096m'
-
-            //rtMaven
-            def ENV = params.ENV
-            def executeTests = params.executeTests
-            if (params.ENV != null) {
-                echo "env =  ${ENV}"
-                echo ENV
-            }
-            if (params.executeTests != null) {
-                echo "executeTests =  ${executeTests}"
-            }
-
-        } catch (err) {
-            throw err
-        }
+    //rtMaven
+    def ENV = params.ENV
+    def executeTests = params.executeTests
+    if (params.ENV != null) {
+        echo "env =  ${ENV}"
+        echo ENV
+    }
+    if (params.executeTests != null) {
+        echo "executeTests =  ${executeTests}"
     }
 
     stage('SCM checkout') {
