@@ -247,7 +247,7 @@ node {
         //and with jenkins environnement variables :
         //clean install -Dartifactory.publish.artifacts=$PUBLISH_ARTIFACTS -Dartifactory.publish.buildInfo=$PUBLISH_BUILDINFO
 
-        rtMaven.run pom: 'pom.xml', goals: 'clean install', buildInfo: buildInfo
+        rtMaven.run pom: 'pom.xml', goals: 'clean install -Dmaven.test.skip=true', buildInfo: buildInfo
         rtMaven.deployer.deployArtifacts buildInfo
         buildInfo = rtMaven.run pom: 'pom.xml', goals: 'clean install -Dmaven.repo.local=.m2 -Dmaven.test.skip=true'
         buildInfo.env.capture = true
