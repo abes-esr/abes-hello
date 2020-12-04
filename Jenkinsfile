@@ -50,10 +50,6 @@ node {
     // 2. On configure les paramètres d'utilisation
     stage ("Setting parameters") {
         try {
-            sh (script: 'git tag -l > tags_list.txt',returnStdout: true)
-            def tags = readFile('tags_list.txt').trim()
-            echo "tags = ${tags}"
-            sh 'rm -f tags_list.txt'
 
             properties(
                     [parameters([
