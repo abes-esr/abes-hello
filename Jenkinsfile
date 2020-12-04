@@ -39,7 +39,7 @@ node {
     stage('SCM checkout') {
         checkout([$class: 'GitSCM',
                   branches: [[name: '*/master'],
-                             [name: '*/develop']],
+                             [name: 'Test/develop']],
                   doGenerateSubmoduleConfigurations: false,
                   extensions: [],
                   submoduleCfg: [],
