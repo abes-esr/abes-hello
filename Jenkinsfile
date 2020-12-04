@@ -5,6 +5,13 @@
 //it's necessary to see if a jenkins variable is usefull so to maybe allows conditionnal running and deploying test contexts
 
 node {
+
+    properties(
+    [parameters([
+            choice(choices: ['RELEASE', 'LATEST', '0.0.1-SNAPSHOT'], description: '', name: 'maven-repository-artifact'),
+            choice(choices: ['DEV', 'TEST', 'PROD'], description: '', name: 'ENV'),
+            booleanParam(defaultValue: false, description: '', name: 'executeTests')
+    ])])
     // 1. On charge les variables d'environnement (Java, Maven,...)
     stage ("Loading environement variables") {
 
@@ -47,24 +54,7 @@ node {
         ])
     }
 
-    // 2. On configure les paramètres d'utilisation
-    stage ("Setting parameters") {
-        try {
 
-            properties(
-                    [parameters([
-                            choice(choices: ['RELEASE', 'LATEST', '0.0.1-SNAPSHOT'], description: '', name: 'maven-repository-artifact'),
-                            choice(choices: ['DEV', 'TEST', 'PROD'], description: '', name: 'ENV'),
-                            choice(choices: ['CURRENT', ${tags}], description: '', name: 'VERSION'),
-                            booleanParam(defaultValue: false, description: '', name: 'executeTests')
-                    ])])
-
-        }
-        catch (err) {
-            throw err
-        }
-
-    }
 
     //if the checkbox (params.executeTests) is checked
     stage ('test') {
