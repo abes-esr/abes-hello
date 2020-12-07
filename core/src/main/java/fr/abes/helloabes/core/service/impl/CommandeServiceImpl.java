@@ -20,12 +20,12 @@ public class CommandeServiceImpl implements ICommandeService {
 
     @Override
     public Commandes createCommande(Commandes commande) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Commandes findCommandeById(Commandes commande) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override

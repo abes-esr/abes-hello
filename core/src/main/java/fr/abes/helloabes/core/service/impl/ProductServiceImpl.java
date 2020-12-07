@@ -7,11 +7,11 @@ public class ProductServiceImpl implements IProductService {
 
     @Override
     public Products createProduct(Products product) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Products FindProductById(Products product) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 }

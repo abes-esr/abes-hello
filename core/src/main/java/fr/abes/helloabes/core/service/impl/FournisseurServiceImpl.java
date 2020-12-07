@@ -6,11 +6,11 @@ import fr.abes.helloabes.core.service.IFournisseurService;
 public class FournisseurServiceImpl implements IFournisseurService {
     @Override
     public Fournisseur createFournisseur(Fournisseur fournisseur) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public Fournisseur FindFournissuerById(Fournisseur fournisseur) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 }
