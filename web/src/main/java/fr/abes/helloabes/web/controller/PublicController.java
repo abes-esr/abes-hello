@@ -29,7 +29,7 @@ import java.util.Map;
  * @author Duy Tran
  */
 @Slf4j
-@CrossOrigin(origins = "https://hello-dev.abes.fr")
+@CrossOrigin(origins = "https://hello-dev.abes.fr:80")
 @RestController
 @RequestMapping("/api")
 public class PublicController {
