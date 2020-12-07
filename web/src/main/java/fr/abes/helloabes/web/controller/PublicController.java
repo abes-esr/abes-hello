@@ -31,7 +31,7 @@ import java.util.Map;
 @Slf4j
 @CrossOrigin(origins = "https://hello-dev.abes.fr")
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/Hello_Abes_back_end/api")
 public class PublicController {
 
     /** Service pour les utilisateurs du service web.  */
