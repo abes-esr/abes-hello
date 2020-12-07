@@ -29,9 +29,9 @@ import java.util.Map;
  * @author Duy Tran
  */
 @Slf4j
-@CrossOrigin(origins = "http://localhost:8888")
+@CrossOrigin(origins = "https://hello-dev.abes.fr:8888")
 @RestController
-@RequestMapping("/")
+@RequestMapping("/api")
 public class PublicController {
 
     /** Service pour les utilisateurs du service web.  */
