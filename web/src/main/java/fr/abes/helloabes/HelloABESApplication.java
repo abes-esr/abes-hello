@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.util.Arrays;
@@ -25,7 +26,7 @@ import java.util.List;
  * @author Duy Tran
  */
 @SpringBootApplication
-public class HelloABESApplication implements CommandLineRunner {
+public class HelloABESApplication extends SpringBootServletInitializer implements CommandLineRunner {
 
 	/** Dépot d'utilisateurs du service web. L'attribut {@link #userRepository} est utilisé ici dans le cadre de
 	 * la version de démontration afin d'ajouter dès le démarrage un utilisateur par defaut.
