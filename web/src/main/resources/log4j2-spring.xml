@@ -2,7 +2,7 @@
 <!-- Doc : http://logging.apache.org/log4j/2.x/manual/appenders.html#CustomDeleteOnRollover -->
 <Configuration>
     <Properties>
-        <Property name="baseDir">../logs</Property>
+        <Property name="baseDir">/usr/local/tomcat9-abes-hello/webapps/Hello_Abes_back_end/logs</Property>
         <Property name="logFileName">helloabes_web_log</Property>
         <Property name="errorFileName">helloabes_web_error</Property>
         <Property name="debugFileName">helloabes_web_debug</Property>
