@@ -25,9 +25,9 @@ import java.util.Map;
  * @since 0.0.1
  * @author Duy Tran
  */
-@CrossOrigin(origins = "http://localhost:8888")
+@CrossOrigin(origins = "https://hello-dev.abes.fr")
 @RestController
-@RequestMapping("api/secured")
+@RequestMapping("/api/secured")
 public class SecuredController {
 
     private final IUserService userService;
