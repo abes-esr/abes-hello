@@ -101,7 +101,7 @@ public class PublicController {
      * @param authRequest Utilisateur du service web à identifier.
      * @return ResponseEntity<AuthenticationResponse> Une réponse en JSON contant un objet AuthentifcationResponse.
      */
-    @PostMapping("/login")
+    @PostMapping("login")
     @ApiOperation(
             value = "Authentifier un utilisateur",
             notes = "Service d'authentification d'un utilisateur")
